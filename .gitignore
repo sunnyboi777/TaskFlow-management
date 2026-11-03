@@ -1,0 +1,60 @@
+# Python virtual environment
+.venv/
+venv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Local databases
+*.db
+*.sqlite
+*.sqlite3
+
+# Database backups
+*.backup
+*.dump
+*.sql
+
+# Streamlit
+.streamlit/
+
+# Playwright recordings and screenshots
+Playwright/
+
+# Test and coverage reports
+.coverage
+htmlcov/
+test-results/
+playwright-report/
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Build files
+build/
+dist/
+*.egg-info/
+
+# Local editor settings
+.vscode/
+
+# Local test output
+pytest_full_output.txt
+
+# Old virtual environments
+.venv_old/
+
+# Secret and certificate files
+*.pem
+*.key
+
+# Logs
+*.log
