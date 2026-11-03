@@ -8,19 +8,25 @@ def render_all_tasks(tasks):
         unsafe_allow_html=True,
     )
 
-    search = st.text_input(
-        "🔍 Search tasks",
-        placeholder="Search by title or description...",
-    )
+    search_col, filter_col = st.columns([2, 1])
 
-    status_filter = st.selectbox(
-        "Filter by status",
-        [
-            "All Tasks",
-            "Pending",
-            "Completed",
-        ],
-    )
+    with search_col:
+        search = st.text_input(
+            "🔍 Search tasks",
+            placeholder="Search by title or description...",
+        )
+
+    with filter_col:
+        status_filter = st.selectbox(
+            "🔽 Filter tasks",
+            [
+                "All Tasks",
+                "Pending",
+                "Completed",
+            ],
+            key="all_tasks_status_filter",
+            help="Show all tasks, pending tasks, or completed tasks.",
+        )
 
     # Sort tasks by their actual database ID.
     # Display numbers are assigned separately from database IDs.
