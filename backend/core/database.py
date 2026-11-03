@@ -1,7 +1,7 @@
 import os
 from pathlib import Path
 
-from sqlalchemy import create_engine  # type: ignore[import-not-found]
+from sqlalchemy import create_engine, event  # type: ignore[import-not-found]
 from sqlalchemy.orm import sessionmaker, DeclarativeBase  # type: ignore[import-not-found]
 
 def load_dotenv(path: Path) -> None:
@@ -38,6 +38,17 @@ engine = create_engine(
         "options": "-csearch_path=public",
     },
 )
+
+
+@event.listens_for(engine, "connect")
+def set_public_schema(dbapi_connection, connection_record):
+    """Ensure every PostgreSQL connection can create/query app tables."""
+    cursor = dbapi_connection.cursor()
+    try:
+        cursor.execute("SET search_path TO public")
+    finally:
+        cursor.close()
+
 
 SessionLocal = sessionmaker(
     autocommit=False,
