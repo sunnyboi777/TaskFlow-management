@@ -20,6 +20,14 @@ except ModuleNotFoundError as exc:
         ) from exc
     raise
 
+st.set_page_config(
+    page_title="TaskFlow | Task Manager",
+    page_icon="✅",
+    layout="wide",
+    initial_sidebar_state="expanded",
+)
+
+
 from frontend.components.styles import load_styles
 from frontend.components.layout import render_hero
 from frontend.services.api import (
@@ -33,13 +41,6 @@ from frontend.pages.all_tasks import render_all_tasks
 from frontend.pages.auth import render_auth_page
 from frontend.pages.admin import render_admin_dashboard
 
-
-st.set_page_config(
-    page_title="TaskFlow | Task Manager",
-    page_icon="✅",
-    layout="wide",
-    initial_sidebar_state="expanded",
-)
 
 load_styles()
 
