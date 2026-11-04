@@ -17,6 +17,10 @@ def load_styles():
             font-family: 'Inter', sans-serif;
         }
 
+        html {
+            color-scheme: light;
+        }
+
         .stApp {
             background: linear-gradient(
                 135deg,
@@ -24,6 +28,22 @@ def load_styles():
                 #eef2ff 50%,
                 #f8faff 100%
             );
+            color: #1f2937;
+        }
+
+        div[data-testid="stAppViewContainer"],
+        div[data-testid="stAppViewContainer"] label,
+        div[data-testid="stAppViewContainer"] h1,
+        div[data-testid="stAppViewContainer"] h2,
+        div[data-testid="stAppViewContainer"] h3,
+        div[data-testid="stAppViewContainer"] p {
+            color: #1f2937;
+        }
+
+        div[data-testid="stAppViewContainer"] input,
+        div[data-testid="stAppViewContainer"] textarea {
+            color: #1f2937;
+            background-color: #ffffff;
         }
 
         #MainMenu, footer {
@@ -66,6 +86,13 @@ def load_styles():
             color: #e0e7ff;
             font-size: 15px;
             margin-bottom: 0;
+        }
+
+        .hero,
+        .hero h1,
+        .hero p,
+        .hero .hero-badge {
+            color: white;
         }
 
         .hero-badge {

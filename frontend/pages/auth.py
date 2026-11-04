@@ -14,8 +14,8 @@ def render_auth_page():
     st.markdown(
         """
         <div style="text-align:center; padding: 25px 0 10px;">
-            <h1>TaskFlow</h1>
-            <p>Organize your work. Stay productive.</p>
+            <h1 style="color:#1f2937;">TaskFlow</h1>
+            <p style="color:#4b5563;">Organize your work. Stay productive.</p>
         </div>
         """,
         unsafe_allow_html=True,
