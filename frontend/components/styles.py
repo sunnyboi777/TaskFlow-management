@@ -46,6 +46,15 @@ def load_styles():
             background-color: #ffffff;
         }
 
+        div[data-testid="stSidebar"],
+        div[data-testid="stSidebar"] * {
+            color: #1f2937;
+        }
+
+        div[data-testid="stSidebar"] {
+            background: #ffffff;
+        }
+
         #MainMenu, footer {
             visibility: hidden;
         }
@@ -92,6 +101,12 @@ def load_styles():
         .hero h1,
         .hero p,
         .hero .hero-badge {
+            color: white;
+        }
+
+        div[data-testid="stAppViewContainer"] .hero h1,
+        div[data-testid="stAppViewContainer"] .hero p,
+        div[data-testid="stAppViewContainer"] .hero .hero-badge {
             color: white;
         }
 
