@@ -48,11 +48,11 @@ def load_styles():
 
         div[data-testid="stSidebar"],
         div[data-testid="stSidebar"] * {
-            color: #1f2937;
+            color: #1f2937 !important;
         }
 
         div[data-testid="stSidebar"] {
-            background: #ffffff;
+            background: #ffffff !important;
         }
 
         #MainMenu, footer {
@@ -107,7 +107,7 @@ def load_styles():
         div[data-testid="stAppViewContainer"] .hero h1,
         div[data-testid="stAppViewContainer"] .hero p,
         div[data-testid="stAppViewContainer"] .hero .hero-badge {
-            color: white;
+            color: white !important;
         }
 
         .hero-badge {
