@@ -194,9 +194,9 @@ def load_styles(theme="light"):
         }
 
         div.stButton > button[key="auth_theme_toggle"] {
-            max-width: 260px;
-            margin: 0 auto 8px;
-            min-height: 48px;
+            min-height: 38px;
+            padding: 0 14px;
+            margin: 0 0 10px;
             border-color: #818cf8;
             color: var(--text-primary) !important;
             background: var(--surface-raised) !important;

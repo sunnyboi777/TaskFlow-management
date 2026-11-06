@@ -19,16 +19,17 @@ def render_auth_page():
 
     theme = st.session_state["theme"]
 
-    if st.button(
-        "☀️ Light theme" if theme == "dark" else "🌙 Dark theme",
-        key="auth_theme_toggle",
-        type="secondary",
-        use_container_width=True,
-    ):
-        selected_theme = "light" if theme == "dark" else "dark"
-        st.session_state["theme"] = selected_theme
-        st.query_params["theme"] = selected_theme
-        st.rerun()
+    theme_left, _, _ = st.columns([1, 5, 1])
+    with theme_left:
+        if st.button(
+            "☀️ Light theme" if theme == "dark" else "🌙 Dark theme",
+            key="auth_theme_toggle",
+            type="secondary",
+        ):
+            selected_theme = "light" if theme == "dark" else "dark"
+            st.session_state["theme"] = selected_theme
+            st.query_params["theme"] = selected_theme
+            st.rerun()
 
     st.markdown(
         """
