@@ -22,6 +22,7 @@ def load_styles(theme="light"):
             --heading: %s;
             --input-background: %s;
             --shadow: %s;
+            --toolbar-icon-filter: %s;
         }
     """ % (
         "dark" if dark_theme else "light",
@@ -36,6 +37,7 @@ def load_styles(theme="light"):
         "#c7d2fe" if dark_theme else "#1e1b4b",
         "#111827" if dark_theme else "#ffffff",
         "rgba(0, 0, 0, 0.25)" if dark_theme else "rgba(31, 41, 55, 0.04)",
+        "brightness(0) invert(1)" if dark_theme else "none",
     )
 
     # =========================================================
@@ -124,8 +126,16 @@ def load_styles(theme="light"):
         header[data-testid="stHeader"] a svg,
         header[data-testid="stHeader"] [role="button"] svg {
             color: var(--text-primary) !important;
-            fill: currentColor !important;
-            stroke: currentColor !important;
+            filter: var(--toolbar-icon-filter);
+            opacity: 1 !important;
+        }
+
+        [data-testid="stSidebarCollapseButton"] svg,
+        [data-testid="stSidebarNavCollapse"] svg,
+        [data-testid="stToolbar"] svg,
+        [data-testid="stToolbar"] button svg,
+        [data-testid="stToolbar"] a svg {
+            filter: var(--toolbar-icon-filter) !important;
             opacity: 1 !important;
         }
 
