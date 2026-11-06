@@ -193,6 +193,14 @@ def load_styles(theme="light"):
             color: var(--text-primary);
         }
 
+        div.stButton > button[key="auth_theme_toggle"] {
+            max-width: 260px;
+            margin: 0 auto 8px;
+            border-color: #818cf8;
+            color: var(--text-primary) !important;
+            background: var(--surface-raised) !important;
+        }
+
         .hero {
             background: linear-gradient(
                 120deg,

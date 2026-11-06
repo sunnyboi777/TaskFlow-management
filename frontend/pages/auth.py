@@ -11,14 +11,21 @@ from frontend.services.api import (
 def render_auth_page():
     """Display TaskFlow Login and Sign Up screens."""
 
-    theme = st.session_state.get("theme", "light")
+    query_theme = st.query_params.get("theme", "").lower()
+    if query_theme in {"light", "dark"}:
+        st.session_state["theme"] = query_theme
+    else:
+        st.session_state.setdefault("theme", "light")
+
+    theme = st.session_state["theme"]
+
     if st.button(
-        "☀️ Light theme" if theme == "dark" else "🌙 Dark theme",
+        "Switch to Light theme" if theme == "dark" else "Switch to Dark theme",
         key="auth_theme_toggle",
+        type="secondary",
+        use_container_width=True,
     ):
-        selected_theme = (
-            "light" if theme == "dark" else "dark"
-        )
+        selected_theme = "light" if theme == "dark" else "dark"
         st.session_state["theme"] = selected_theme
         st.query_params["theme"] = selected_theme
         st.rerun()
