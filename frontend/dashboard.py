@@ -29,7 +29,7 @@ st.set_page_config(
 
 
 from frontend.components.styles import load_styles
-from frontend.components.layout import render_hero
+from frontend.components.layout import render_app_toolbar, render_hero
 from frontend.services.api import (
     api_request,
     show_api_error,
@@ -158,21 +158,6 @@ def check_backend():
             use_container_width=True,
         ):
             logout()
-
-        st.divider()
-
-        st.markdown("### Appearance")
-
-        if st.button(
-            "☀️ Light theme" if theme == "dark" else "🌙 Dark theme",
-            use_container_width=True,
-        ):
-            selected_theme = (
-                "light" if theme == "dark" else "dark"
-            )
-            st.session_state["theme"] = selected_theme
-            st.query_params["theme"] = selected_theme
-            st.rerun()
 
         st.divider()
 
@@ -326,6 +311,7 @@ if not is_authenticated():
 else:
 
     check_backend()
+    render_app_toolbar(theme)
 
     current_page.run()
 

@@ -152,6 +152,52 @@ def load_styles(theme="light"):
             padding-bottom: 3rem;
         }
 
+        .app-toolbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 11px;
+            min-height: 46px;
+            margin-bottom: 18px;
+            color: var(--text-primary);
+        }
+
+        .app-toolbar-mark {
+            display: grid;
+            place-items: center;
+            width: 34px;
+            height: 34px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #4f46e5, #7c3aed);
+            color: #ffffff;
+            font-size: 20px;
+            font-weight: 800;
+            box-shadow: 0 6px 16px rgba(79, 70, 229, 0.25);
+        }
+
+        .app-toolbar-brand strong,
+        .app-toolbar-brand small {
+            display: block;
+        }
+
+        .app-toolbar-brand strong {
+            font-size: 16px;
+            line-height: 1.1;
+        }
+
+        .app-toolbar-brand small {
+            margin-top: 3px;
+            color: var(--text-secondary);
+            font-size: 11px;
+        }
+
+        div.stButton > button[kind="secondary"] {
+            min-height: 42px;
+            border: 1px solid var(--surface-border);
+            border-radius: 12px;
+            background: var(--surface-raised);
+            color: var(--text-primary);
+        }
+
         .hero {
             background: linear-gradient(
                 120deg,
