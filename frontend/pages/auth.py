@@ -20,7 +20,7 @@ def render_auth_page():
     theme = st.session_state["theme"]
 
     if st.button(
-        "Switch to Light theme" if theme == "dark" else "Switch to Dark theme",
+        "☀️ Light theme" if theme == "dark" else "🌙 Dark theme",
         key="auth_theme_toggle",
         type="secondary",
         use_container_width=True,
