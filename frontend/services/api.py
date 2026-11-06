@@ -15,13 +15,11 @@ HTTP_SESSION = requests.Session()
 def get_api_url():
     """Get the backend URL from cloud secrets or local environment."""
 
-    api_url = os.getenv("API_URL")
-
-    if not api_url:
-        try:
-            api_url = st.secrets["API_URL"]
-        except (KeyError, FileNotFoundError):
-            api_url = None
+    api_url = None
+    try:
+        api_url = st.secrets["API_URL"]
+    except (KeyError, FileNotFoundError):
+        api_url = os.getenv("API_URL")
 
     return (api_url or "http://127.0.0.1:8000").rstrip("/")
 
