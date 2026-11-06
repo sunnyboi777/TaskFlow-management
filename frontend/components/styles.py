@@ -200,10 +200,19 @@ def load_styles(theme="light"):
             border-color: #818cf8;
             color: var(--text-primary) !important;
             background: var(--surface-raised) !important;
+            box-shadow: 0 5px 16px rgba(79, 70, 229, 0.22);
             cursor: pointer;
             touch-action: manipulation;
             -webkit-tap-highlight-color: transparent;
             user-select: none;
+        }
+
+        div.stButton > button[key="auth_theme_toggle"]:hover,
+        div.stButton > button[key="auth_theme_toggle"]:focus-visible {
+            border-color: #a5b4fc !important;
+            color: #ffffff !important;
+            background: #3730a3 !important;
+            box-shadow: 0 7px 20px rgba(129, 140, 248, 0.32);
         }
 
         .hero {
