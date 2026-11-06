@@ -42,7 +42,20 @@ from frontend.pages.auth import render_auth_page
 from frontend.pages.admin import render_admin_dashboard
 
 
-load_styles()
+def get_theme():
+    """Keep the selected theme across Streamlit page navigation and refreshes."""
+
+    query_theme = st.query_params.get("theme", "").lower()
+    if query_theme in {"light", "dark"}:
+        st.session_state["theme"] = query_theme
+    else:
+        st.session_state.setdefault("theme", "light")
+
+    return st.session_state["theme"]
+
+
+theme = get_theme()
+load_styles(theme)
 
 
 # =========================================================
@@ -114,10 +127,10 @@ def check_backend():
             """
             <div style="padding:10px 0 18px 0;">
                 <div style="font-size:30px;">✅</div>
-                <div style="font-size:23px;font-weight:800;color:#312e81;">
+                <div class="brand-name" style="font-size:23px;font-weight:800;">
                     TaskFlow
                 </div>
-                <div style="color:#9ca3af;font-size:12px;">
+                <div class="brand-tagline" style="font-size:12px;">
                     YOUR PRODUCTIVITY SPACE
                 </div>
             </div>
@@ -145,6 +158,21 @@ def check_backend():
             use_container_width=True,
         ):
             logout()
+
+        st.divider()
+
+        st.markdown("### Appearance")
+
+        if st.button(
+            "☀️ Light theme" if theme == "dark" else "🌙 Dark theme",
+            use_container_width=True,
+        ):
+            selected_theme = (
+                "light" if theme == "dark" else "dark"
+            )
+            st.session_state["theme"] = selected_theme
+            st.query_params["theme"] = selected_theme
+            st.rerun()
 
         st.divider()
 

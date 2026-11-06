@@ -11,11 +11,27 @@ from frontend.services.api import (
 def render_auth_page():
     """Display TaskFlow Login and Sign Up screens."""
 
+    theme = st.session_state.get("theme", "light")
+    if st.button(
+        "☀️ Light theme" if theme == "dark" else "🌙 Dark theme",
+        key="auth_theme_toggle",
+    ):
+        selected_theme = (
+            "light" if theme == "dark" else "dark"
+        )
+        st.session_state["theme"] = selected_theme
+        st.query_params["theme"] = selected_theme
+        st.rerun()
+
     st.markdown(
         """
-        <div style="text-align:center; padding: 25px 0 10px;">
-            <h1 style="color:#1f2937;">TaskFlow</h1>
-            <p style="color:#4b5563;">Organize your work. Stay productive.</p>
+        <div class="auth-header">
+            <div class="auth-logo">✓</div>
+            <div class="auth-kicker">TASKFLOW WORKSPACE</div>
+            <h1 class="auth-title">Welcome to TaskFlow</h1>
+            <p class="auth-subtitle">
+                Plan clearly, work confidently, and keep every task moving forward.
+            </p>
         </div>
         """,
         unsafe_allow_html=True,
@@ -35,10 +51,13 @@ def render_auth_page():
 
         with login_tab:
 
-            st.subheader("Welcome Back!")
+            st.markdown(
+                '<div class="auth-form-title">Welcome back</div>',
+                unsafe_allow_html=True,
+            )
 
             st.caption(
-                "Log in to continue to your tasks."
+                "Log in securely to continue to your tasks."
             )
 
             with st.form("taskflow_login_form"):
@@ -58,6 +77,7 @@ def render_auth_page():
 
                 login_submitted = st.form_submit_button(
                     "Login",
+                    type="primary",
                     use_container_width=True,
                 )
 
@@ -157,7 +177,10 @@ def render_auth_page():
 
         with signup_tab:
 
-            st.subheader("Create Your Account")
+            st.markdown(
+                '<div class="auth-form-title">Create your account</div>',
+                unsafe_allow_html=True,
+            )
 
             st.caption(
                 "Sign up to start managing your personal tasks."
@@ -187,6 +210,7 @@ def render_auth_page():
 
                 signup_submitted = st.form_submit_button(
                     "Create Account",
+                    type="primary",
                     use_container_width=True,
                 )
 
