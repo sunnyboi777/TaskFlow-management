@@ -113,6 +113,29 @@ def load_styles(theme="light"):
             background: transparent;
         }
 
+        header[data-testid="stHeader"] button,
+        header[data-testid="stHeader"] a,
+        header[data-testid="stHeader"] [role="button"] {
+            color: var(--text-primary) !important;
+            opacity: 1 !important;
+        }
+
+        header[data-testid="stHeader"] button svg,
+        header[data-testid="stHeader"] a svg,
+        header[data-testid="stHeader"] [role="button"] svg {
+            color: var(--text-primary) !important;
+            fill: currentColor !important;
+            stroke: currentColor !important;
+            opacity: 1 !important;
+        }
+
+        header[data-testid="stHeader"] button:hover,
+        header[data-testid="stHeader"] a:hover,
+        header[data-testid="stHeader"] [role="button"]:hover {
+            color: #818cf8 !important;
+            background: rgba(129, 140, 248, 0.14) !important;
+        }
+
         .block-container {
             max-width: 1250px;
             padding-top: 2rem;
