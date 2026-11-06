@@ -126,7 +126,6 @@ def check_backend():
         st.markdown(
             """
             <div style="padding:10px 0 18px 0;">
-                <div style="font-size:30px;">✅</div>
                 <div class="brand-name" style="font-size:23px;font-weight:800;">
                     TaskFlow
                 </div>
@@ -153,8 +152,21 @@ def check_backend():
         else:
             st.info("Standard User")
 
+        st.markdown("### Appearance")
+
+        if st.button(
+            "☀️ Light mode" if theme == "dark" else "🌙 Dark mode",
+            key="sidebar_theme_toggle",
+            use_container_width=True,
+        ):
+            selected_theme = "light" if theme == "dark" else "dark"
+            st.session_state["theme"] = selected_theme
+            st.query_params["theme"] = selected_theme
+            st.rerun()
+
         if st.button(
             "🚪 Logout",
+            key="sidebar_logout",
             use_container_width=True,
         ):
             logout()

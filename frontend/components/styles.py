@@ -155,23 +155,9 @@ def load_styles(theme="light"):
         .app-toolbar-brand {
             display: flex;
             align-items: center;
-            gap: 11px;
             min-height: 46px;
             margin-bottom: 18px;
             color: var(--text-primary);
-        }
-
-        .app-toolbar-mark {
-            display: grid;
-            place-items: center;
-            width: 34px;
-            height: 34px;
-            border-radius: 10px;
-            background: linear-gradient(135deg, #4f46e5, #7c3aed);
-            color: #ffffff;
-            font-size: 20px;
-            font-weight: 800;
-            box-shadow: 0 6px 16px rgba(79, 70, 229, 0.25);
         }
 
         .app-toolbar-brand strong,
@@ -180,7 +166,9 @@ def load_styles(theme="light"):
         }
 
         .app-toolbar-brand strong {
-            font-size: 16px;
+            color: var(--text-primary);
+            font-size: 24px;
+            font-weight: 800;
             line-height: 1.1;
         }
 
@@ -188,6 +176,13 @@ def load_styles(theme="light"):
             margin-top: 3px;
             color: var(--text-secondary);
             font-size: 11px;
+        }
+
+        section[data-testid="stSidebar"] h3 {
+            margin-top: 14px;
+            color: var(--text-primary) !important;
+            font-size: 14px;
+            letter-spacing: 0.2px;
         }
 
         div.stButton > button[kind="secondary"] {

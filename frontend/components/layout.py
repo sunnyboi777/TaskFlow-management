@@ -2,35 +2,19 @@ import streamlit as st  # type: ignore[reportMissingImports]
 
 
 def render_app_toolbar(theme):
-    """Render theme controls inside the application content area."""
+    """Render the application wordmark above the page content."""
 
-    left, right = st.columns([3, 1])
-
-    with left:
-        st.markdown(
-            """
-            <div class="app-toolbar-brand">
-                <span class="app-toolbar-mark">✓</span>
-                <span>
-                    <strong>TaskFlow</strong>
-                    <small>Productivity workspace</small>
-                </span>
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
-
-    with right:
-        label = "☀️ Light mode" if theme == "dark" else "🌙 Dark mode"
-        if st.button(
-            label,
-            key="app_toolbar_theme_toggle",
-            use_container_width=True,
-        ):
-            selected_theme = "light" if theme == "dark" else "dark"
-            st.session_state["theme"] = selected_theme
-            st.query_params["theme"] = selected_theme
-            st.rerun()
+    st.markdown(
+        """
+        <div class="app-toolbar-brand">
+            <span>
+                <strong>TaskFlow</strong>
+                <small>Productivity workspace</small>
+            </span>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
 
 
 def render_hero():
